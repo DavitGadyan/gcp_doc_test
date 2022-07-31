@@ -108,11 +108,13 @@ def get_status_msg(code):
 	msg = 'Internal Server Error' if code == 500 else msg
 	return msg
 
-method = get_method()
-id = get_task_id()
-title = get_task_title()
+
 
 if __name__ == '__main__':
+	method = get_method()
+	id = get_task_id()
+	title = get_task_title()
+	
 	if method == 'GET' and not id is None:
 		resp = get_task(id)
 	elif method == 'GET':
