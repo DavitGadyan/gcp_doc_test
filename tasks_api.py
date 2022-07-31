@@ -8,12 +8,14 @@ DB_USER=os.getenv('DB_USER') or 'root'
 DB_PSWD=os.getenv('DB_PSWD') or 'pass123'
 DB_NAME=os.getenv('DB_NAME') or 'task_logger'
 DB_HOST=os.getenv('DB_HOST') or '34.173.63.254'
+UNIX_SOCKET=os.getenv('UNIX_SOCKET') or '/cloudsql/ux360-28:us-central1:cloud-native-t2'
 
 db = pymysql.connect(host=DB_HOST, 
 										 user=DB_USER, 
 										 password=DB_PSWD, 
 										 database=DB_NAME, 
-										 cursorclass=pymysql.cursors.DictCursor)
+										 cursorclass=pymysql.cursors.DictCursor,
+										 unix_socket=UNIX_SOCKET)
 cursor = db.cursor()
 
 # Create a new task
